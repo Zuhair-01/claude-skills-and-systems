@@ -3,7 +3,7 @@
 ## 1. Clone and link
 
 ```bash
-git clone https://github.com/<you>/claude-skills-and-systems.git
+git clone https://github.com/Zuhair-01/claude-skills-and-systems.git
 ```
 
 - **Claude Code:** copy or symlink `skills/*` into `~/.claude/skills/`
@@ -37,3 +37,4 @@ cd claude-skills-and-systems && git pull
 ```
 
 If you symlinked (rather than copied), updates flow through immediately. If you copied, re-copy.
+

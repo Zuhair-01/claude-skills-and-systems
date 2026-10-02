@@ -47,7 +47,7 @@ Every skill is a folder with a `SKILL.md` (instruction file the agent loads) plu
 ## Install (new device)
 
 ```bash
-git clone https://github.com/<you>/claude-skills-and-systems.git
+git clone https://github.com/Zuhair-01/claude-skills-and-systems.git
 # Claude Code:
 cp -r claude-skills-and-systems/skills/* ~/.claude/skills/
 # OpenCode: symlink instead so updates flow through
@@ -66,3 +66,4 @@ Details, per-skill requirements (API keys, runtimes), and path conventions → *
 ## License
 
 MIT — see `LICENSE`. Some skills wrap third-party tools with their own terms (check the skill's SKILL.md before commercial use).
+
