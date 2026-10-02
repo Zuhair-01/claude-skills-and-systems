@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="300" viewBox="0 0 1200 300" role="img" aria-label="Claude Skills and Smart Systems: one router dispatching tasks to specialized skills">
+  <defs>
+    <pattern id="dots" width="28" height="28" patternUnits="userSpaceOnUse">
+      <circle cx="1.5" cy="1.5" r="1.5" fill="#1c2128"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="300" rx="16" fill="#0d1117"/>
+  <rect width="1200" height="300" rx="16" fill="url(#dots)"/>
+
+  <text x="56" y="76" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="46" font-weight="800" letter-spacing="-1" fill="#f0f6fc">Claude Skills &amp; Smart Systems</text>
+  <text x="58" y="110" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="19" fill="#8b949e">360 agent skills &#183; one router &#183; new machine in minutes</text>
+
+  <g font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace">
+    <rect x="56" y="136" width="500" height="124" rx="10" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+    <circle cx="78" cy="157" r="5" fill="#ff5f57" opacity="0.85"/>
+    <circle cx="96" cy="157" r="5" fill="#febc2e" opacity="0.85"/>
+    <circle cx="114" cy="157" r="5" fill="#28c840" opacity="0.85"/>
+    <text x="540" y="161" font-size="13" fill="#8b949e" text-anchor="end">skill-router</text>
+    <text x="76" y="192" font-size="15" fill="#e6edf3"><tspan fill="#d97757">$ </tspan>route "build me a landing page"</text>
+    <text x="76" y="218" font-size="14" fill="#8b949e">&#9656; stack: taste-skill + react + tailwind</text>
+    <text x="76" y="243" font-size="14" fill="#3fb950">&#10003; dispatched &#183; 3 skills loaded</text>
+  </g>
+
+  <g>
+    <line x1="880" y1="200" x2="1073" y2="132" stroke="#30363d" stroke-width="1.5"/>
+    <line x1="880" y1="200" x2="1088" y2="172" stroke="#30363d" stroke-width="1.5"/>
+    <line x1="880" y1="200" x2="1088" y2="214" stroke="#30363d" stroke-width="1.5"/>
+    <line x1="880" y1="200" x2="1073" y2="254" stroke="#30363d" stroke-width="1.5"/>
+    <line x1="880" y1="200" x2="800" y2="270" stroke="#30363d" stroke-width="1.5"/>
+    <circle r="3.5" fill="#d97757">
+      <animateMotion dur="2.2s" repeatCount="indefinite" path="M 880 200 L 1073 132"/>
+    </circle>
+    <circle r="3.5" fill="#d97757">
+      <animateMotion dur="3.1s" repeatCount="indefinite" path="M 880 200 L 1088 214"/>
+    </circle>
+  </g>
+
+  <g font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="13" text-anchor="middle">
+    <g>
+      <rect x="1014" y="118" width="118" height="28" rx="14" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+      <circle cx="1030" cy="132" r="3.5" fill="#d97757"/>
+      <text x="1079" y="136.5" fill="#e6edf3">frontend</text>
+    </g>
+    <g>
+      <rect x="1029" y="158" width="118" height="28" rx="14" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+      <circle cx="1045" cy="172" r="3.5" fill="#d97757"/>
+      <text x="1094" y="176.5" fill="#e6edf3">backend</text>
+    </g>
+    <g>
+      <rect x="1029" y="200" width="118" height="28" rx="14" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+      <circle cx="1045" cy="214" r="3.5" fill="#d97757"/>
+      <text x="1094" y="218.5" fill="#e6edf3">video</text>
+    </g>
+    <g>
+      <rect x="1014" y="240" width="118" height="28" rx="14" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+      <circle cx="1030" cy="254" r="3.5" fill="#d97757"/>
+      <text x="1079" y="258.5" fill="#e6edf3">marketing</text>
+    </g>
+    <g>
+      <rect x="741" y="256" width="118" height="28" rx="14" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+      <circle cx="757" cy="270" r="3.5" fill="#d97757"/>
+      <text x="806" y="274.5" fill="#e6edf3">security</text>
+    </g>
+  </g>
+
+  <circle cx="880" cy="200" r="46" fill="none" stroke="#d97757" stroke-width="2" opacity="0.45">
+    <animate attributeName="opacity" values="0.45;0.7;0.45" dur="3s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="880" cy="200" r="32" fill="#161b22" stroke="#d97757" stroke-width="2.5"/>
+  <text x="880" y="197" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="14" fill="#d97757" text-anchor="middle">router</text>
+  <text x="880" y="217" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="15" font-weight="800" fill="#f0f6fc" text-anchor="middle">360</text>
+
+  <text x="586" y="274" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="13" fill="#6e7681">+ 355 more behind the router</text>
+</svg>

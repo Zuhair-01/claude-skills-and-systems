@@ -1,8 +1,15 @@
+![Claude Skills and Smart Systems — one router dispatching tasks to specialized skills](assets/banner.svg)
+
+[![skills](https://img.shields.io/badge/skills-360-d97757)](SKILLS-INDEX.md)
+[![license](https://img.shields.io/badge/license-MIT-green)](LICENSE)
+[![works with](https://img.shields.io/badge/works_with-Claude_Code_%7C_OpenCode-30363d)](PORTING.md)
+[![PRs](https://img.shields.io/badge/PRs-welcome-brightgreen)](PORTING.md)
+
 # Claude Skills & Smart Systems
 
 A production-grade library of **360 agent skills** plus the routing systems that make them work together — built for bootstrapping a new Claude Code / OpenCode setup on a new device in minutes.
 
-Every skill is a folder with a `SKILL.md` (instruction file the agent loads) plus its scripts, references, and templates. Drop the folder into your skills directory and the capability is installed.
+Every skill is a folder with a `SKILL.md` (the instruction file the agent loads) plus its scripts, references, and templates. Drop the folder into your skills directory and the capability is installed. No framework to learn, no daemon to run.
 
 ## Start here
 
@@ -19,7 +26,7 @@ Every skill is a folder with a `SKILL.md` (instruction file the agent loads) plu
 
 ## Categories
 
-| Category | ~Count | Highlights |
+| Category | Count | Highlights |
 |---|---|---|
 | Frontend / UI | 35 | taste-skill, design-system, tailwind-patterns, shadcn, react-*, nextjs-*, motion-ui, threejs, visual-to-code, redesign-skill |
 | Backend / API / DB | 35 | fastapi-patterns, django-patterns, laravel-patterns, api-design, graphql, prisma-patterns, postgres-patterns, redis-patterns |
@@ -40,7 +47,7 @@ Every skill is a folder with a `SKILL.md` (instruction file the agent loads) plu
 
 1. **`skill-router`** — fires before every substantive task: classifies domain × action, scores candidates (75% to load, 45% to reference), outputs a 1–3 skill stack in phase order. This is the entry point.
 2. **`overseer`** — keyword index over the whole library (`search.py`), so agents find capabilities without loading them all into context.
-3. **`gstack/*`** — full build→review→QA→ship→docs workflow skills (markdown + scripts; compiled binaries excluded — see PORTING.md).
+3. **`gstack/*`** — full build → review → QA → ship → docs workflow skills (markdown + scripts; compiled helper binaries excluded — see PORTING.md).
 4. **`analysis-lane-router` + `analysis-contract`** — pick study/research/audit/investigate lane first, then hold the output to a scored rubric.
 5. **`humanizer`** — two-pass AI-slop gate for any user-facing copy.
 
@@ -66,4 +73,3 @@ Details, per-skill requirements (API keys, runtimes), and path conventions → *
 ## License
 
 MIT — see `LICENSE`. Some skills wrap third-party tools with their own terms (check the skill's SKILL.md before commercial use).
-
