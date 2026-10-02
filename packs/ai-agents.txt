@@ -1,0 +1,9 @@
+# ai-agents pack — build agents that survive production.
+skill-router
+agent-orchestrator
+multi-agent-task-orchestrator
+llm-app-patterns
+llm-evaluation
+rag-implementation
+prompt-engineering
+mcp-builder

@@ -1,0 +1,11 @@
+# backend pack — APIs, ORMs, databases, done right.
+skill-router
+api-design
+fastapi-patterns
+django-patterns
+laravel-patterns
+nodejs-best-practices
+prisma-patterns
+postgres-patterns
+postgresql
+redis-patterns

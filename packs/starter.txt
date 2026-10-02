@@ -1,0 +1,8 @@
+# starter pack — the minimum that makes any new machine dangerous.
+# router + search + debug + review + ship + human copy.
+skill-router
+overseer
+systematic-debugging
+review
+ship
+humanizer

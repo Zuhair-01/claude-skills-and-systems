@@ -1,0 +1,13 @@
+# frontend pack — ship interfaces with taste, not templates.
+skill-router
+frontend-design
+frontend-patterns
+react-best-practices
+react-patterns
+nextjs-app-router-patterns
+nextjs-best-practices
+tailwind-patterns
+shadcn
+motion-ui
+visual-to-code
+redesign-skill

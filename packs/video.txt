@@ -1,0 +1,10 @@
+# video pack — the full AI video factory (UGC, reels, explainers, dubs).
+hyperframes
+hyperframes-core
+hyperframes-cli
+remotion-video-creation
+ffmpeg
+ugc-video-auto
+heygen-video
+seedance-2
+retention-toolkit

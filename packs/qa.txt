@@ -1,0 +1,8 @@
+# qa pack — find it, prove it, fix it, verify it.
+systematic-debugging
+investigate
+qa
+review
+testing-patterns
+e2e-testing
+ship

@@ -1,0 +1,8 @@
+# devops pack — containers, CI/CD, and shipping without drama.
+docker-patterns
+kubernetes-deployment
+terraform-skill
+github-actions-templates
+aws-skills
+vercel-deploy-preflight
+ship

@@ -1,0 +1,6 @@
+# security pack — audit before you ship, not after.
+secure-by-default
+security-audit
+pentest-checklist
+threat-modeling-expert
+api-security-testing
