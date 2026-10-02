@@ -1,4 +1,4 @@
-# Paste this into your CLAUDE.md (or AGENTS.md) so the agent routes every
+# Paste this into your CLAUDE.md so the agent routes every
 # task through this library automatically instead of improvising.
 #
 # Requires: skills installed (see install.sh / install.ps1) + skill-router loaded.

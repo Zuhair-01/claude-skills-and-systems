@@ -3,7 +3,6 @@
 #   ./install.sh                          symlink everything into Claude Code (~/.claude/skills)
 #   ./install.sh --copy                   copy instead of symlink
 #   ./install.sh --pack frontend          install one pack (see packs/, --list-packs)
-#   ./install.sh --opencode               target OpenCode (~/.config/opencode/skills)
 #   ./install.sh --target DIR             custom target directory
 set -euo pipefail
 REPO="$(cd "$(dirname "$0")" && pwd)"
@@ -12,7 +11,6 @@ while [ $# -gt 0 ]; do
   case "$1" in
     --copy) MODE="copy" ;;
     --pack) PACK="$2"; shift ;;
-    --opencode) TARGET="$HOME/.config/opencode/skills" ;;
     --target) TARGET="$2"; shift ;;
     --list-packs) ls "$REPO/packs" | sed 's/\.txt$//'; exit 0 ;;
     --list) ls "$REPO/skills"; exit 0 ;;

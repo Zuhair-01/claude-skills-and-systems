@@ -7,7 +7,6 @@ git clone https://github.com/Zuhair-01/claude-skills-and-systems.git
 ```
 
 - **Claude Code:** copy or symlink `skills/*` into `~/.claude/skills/`
-- **OpenCode:** symlink `skills/*` into `~/.config/opencode/skills/`
 - Verify: `ls ~/.claude/skills | wc -l` should show ~360 entries.
 
 ## 2. Path conventions used in this repo

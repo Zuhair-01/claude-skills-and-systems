@@ -1,14 +1,11 @@
 # install.ps1 — one-command setup for claude-skills-and-systems (Windows)
 #   .\install.ps1                 copy everything into Claude Code (~\.claude\skills)
 #   .\install.ps1 -Pack frontend  install one pack (see packs\, -ListPacks)
-#   .\install.ps1 -OpenCode        target OpenCode (~\.config\opencode\skills)
 #   .\install.ps1 -Link            use junctions instead of copy (same drive only)
-param([string]$Pack = "", [switch]$OpenCode, [switch]$Link, [switch]$ListPacks, [string]$Target = "")
+param([string]$Pack = "", [switch]$Link, [switch]$ListPacks, [string]$Target = "")
 $Repo = Split-Path -Parent $MyInvocation.MyCommand.Path
 if ($ListPacks) { Get-ChildItem "$Repo\packs\*.txt" | ForEach-Object { $_.BaseName }; exit }
-if ([string]::IsNullOrEmpty($Target)) {
-  $Target = if ($OpenCode) { "$HOME\.config\opencode\skills" } else { "$HOME\.claude\skills" }
-}
+if ([string]::IsNullOrEmpty($Target)) { $Target = "$HOME\.claude\skills" }
 New-Item -ItemType Directory -Path $Target -Force | Out-Null
 if ($Pack -ne "") {
   $pf = "$Repo\packs\$Pack.txt"

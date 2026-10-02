@@ -2,12 +2,12 @@
 
 [![skills](https://img.shields.io/badge/skills-360-d97757)](SKILLS-INDEX.md)
 [![license](https://img.shields.io/badge/license-MIT-green)](LICENSE)
-[![works with](https://img.shields.io/badge/works_with-Claude_Code_%7C_OpenCode-30363d)](PORTING.md)
+[![works with](https://img.shields.io/badge/built_for-Claude_Code-d97757)](PORTING.md)
 [![stars](https://img.shields.io/github/stars/Zuhair-01/claude-skills-and-systems?style=social)](https://github.com/Zuhair-01/claude-skills-and-systems)
 [![last commit](https://img.shields.io/github/last-commit/Zuhair-01/claude-skills-and-systems)](https://github.com/Zuhair-01/claude-skills-and-systems/commits/main)
 [![PRs](https://img.shields.io/badge/PRs-welcome-brightgreen)](PORTING.md)
 
-# Claude Skills & Smart Systems — 360 Agent Skills for Claude Code & OpenCode
+# Claude Skills & Smart Systems — 360 Agent Skills for Claude Code
 
 ## 60-second quickstart
 
@@ -22,7 +22,7 @@ cd claude-skills-and-systems
 Windows (PowerShell): `.\install.ps1` / `.\install.ps1 -Pack frontend`.
 Then paste [`ROUTING.md`](ROUTING.md) into your `CLAUDE.md` so the agent actually *uses* the library — that's the step that turns 360 folders into a system.
 
-A production-grade library of **360 agent skills** plus the routing systems that make them work together — built for bootstrapping a new Claude Code / OpenCode setup on a new device in minutes.
+A production-grade library of **360 agent skills** plus the routing systems that make them work together — built for bootstrapping a new Claude Code setup on a new device in minutes.
 
 Every skill is a folder with a `SKILL.md` (the instruction file the agent loads) plus its scripts, references, and templates. Drop the folder into your skills directory and the capability is installed. No framework to learn, no daemon to run.
 
@@ -72,8 +72,6 @@ Every skill is a folder with a `SKILL.md` (the instruction file the agent loads)
 git clone https://github.com/Zuhair-01/claude-skills-and-systems.git
 # Claude Code:
 cp -r claude-skills-and-systems/skills/* ~/.claude/skills/
-# OpenCode: symlink instead so updates flow through
-ln -s /path/to/claude-skills-and-systems/skills/* ~/.config/opencode/skills/
 ```
 
 Details, per-skill requirements (API keys, runtimes), and path conventions → **`PORTING.md`**.
@@ -87,7 +85,7 @@ Details, per-skill requirements (API keys, runtimes), and path conventions → *
 
 ## Find this repo
 
-Searching for **claude code skills, claude skills library, ai agent skills, agent skills collection, opencode skills, llm skills, prompt engineering library, autonomous coding skills, react / nextjs / fastapi / django skills, ugc video skills, heygen / seedance skills, seo and marketing skills, qa and code review skills, MCP server skills, RAG implementation skills** — you're in the right place. Every skill is listed with a one-line description in [`SKILLS-INDEX.md`](SKILLS-INDEX.md), and the [`overseer`](skills/overseer/) index answers keyword searches offline.
+Searching for **claude code skills, claude skills library, ai agent skills, agent skills collection, llm skills, prompt engineering library, autonomous coding skills, react / nextjs / fastapi / django skills, ugc video skills, heygen / seedance skills, seo and marketing skills, qa and code review skills, MCP server skills, RAG implementation skills** — you're in the right place. Every skill is listed with a one-line description in [`SKILLS-INDEX.md`](SKILLS-INDEX.md), and the [`overseer`](skills/overseer/) index answers keyword searches offline.
 
 ## License
 
