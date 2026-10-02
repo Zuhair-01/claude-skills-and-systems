@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Leads Report</title>
+<style>
+:root{--bg:#f6f5f1;--card:#fff;--ink:#1b1d1f;--mute:#6b7075;--line:#e4e2db;--accent:#0f6b4f;--accent-2:#e8f3ee;--warn:#b45309;--warn-bg:#fdf3e4}
+@media (prefers-color-scheme:dark){:root{--bg:#121412;--card:#1b1e1b;--ink:#eceee9;--mute:#9aa19a;--line:#2b302b;--accent:#4cc39a;--accent-2:#16281f;--warn:#e6a14a;--warn-bg:#2a2115}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 "Segoe UI",Tahoma,system-ui,sans-serif}
+.wrap{max-width:1100px;margin:0 auto;padding:24px 16px 80px}
+h1{font-size:22px;margin:0 0 4px}.sub{color:var(--mute);font-size:13px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin:18px 0}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.stat b{display:block;font-size:24px;line-height:1.2}.stat span{color:var(--mute);font-size:12px}
+.bar{position:sticky;top:0;z-index:5;background:var(--bg);padding:10px 0;display:flex;flex-wrap:wrap;gap:8px;align-items:center;border-bottom:1px solid var(--line)}
+input[type=search],select{font:inherit;padding:9px 12px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink)}
+input[type=search]{flex:1;min-width:180px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}
+.chip{border:1px solid var(--line);background:var(--card);color:var(--ink);padding:5px 12px;border-radius:99px;font:inherit;font-size:13px;cursor:pointer}
+.chip.on{background:var(--accent);border-color:var(--accent);color:#fff}
+label.t{display:flex;gap:6px;align-items:center;font-size:13px;color:var(--mute);cursor:pointer}
+.guide{background:var(--warn-bg);border:1px solid var(--line);border-radius:12px;padding:14px 18px;margin:0 0 16px}
+.guide h2{font-size:15px;margin:0 0 6px;color:var(--warn)}.guide ol{margin:0;padding-inline-start:20px}.guide li{margin:3px 0}
+.count{color:var(--mute);font-size:13px;margin:12px 0 6px}
+.list{display:grid;gap:10px}
+.lead{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:grid;grid-template-columns:1fr auto;gap:8px 12px}
+.lead.done{opacity:.5}
+.name{font-weight:600;font-size:16px}
+.meta{color:var(--mute);font-size:13px;display:flex;flex-wrap:wrap;gap:4px 12px}
+.tag{font-size:11px;padding:1px 8px;border-radius:99px;background:var(--accent-2);color:var(--accent);border:1px solid var(--line)}
+.tag.w{background:var(--warn-bg);color:var(--warn)}
+.act{display:flex;gap:6px;flex-wrap:wrap;align-items:center;justify-content:flex-end}
+.btn{font:inherit;font-size:13px;padding:6px 12px;border-radius:9px;border:1px solid var(--line);background:var(--card);color:var(--ink);text-decoration:none;cursor:pointer}
+.btn.wa{background:var(--accent);color:#fff;border-color:var(--accent)}
+.msg{white-space:pre-wrap;background:var(--accent-2);border-radius:8px;padding:8px 10px;margin:6px 0;font-size:13px}
+.ph{direction:ltr;unicode-bidi:embed;font-variant-numeric:tabular-nums}
+@media(max-width:640px){.lead{grid-template-columns:1fr}.act{justify-content:flex-start}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1 id="ttl"></h1>
+  <div class="sub" id="sub"></div>
+  <div class="stats" id="stats"></div>
+  <div class="guide" id="guide"></div>
+  <div class="chips" id="tabs"><button class="chip on" data-t="reach">قابل للتواصل</button><button class="chip" data-t="field">زيارة ميدانية <span id="fc"></span></button></div>
+  <div class="bar">
+    <input type="search" id="q" placeholder="ابحث بالاسم أو الاختصاص أو الرقم…">
+    <select id="sort"><option value="score">الأفضل أولاً</option><option value="reviews">الأكثر تقييماً</option><option value="name">الاسم</option></select>
+    <label class="t"><input type="checkbox" id="mob"> موبايل فقط (واتساب)</label>
+    <select id="tier"><option value="AB">مناسب فقط (A+B)</option><option value="A">A: مراكز/مدرسون</option><option value="B">B: لغات/تدريب</option><option value="C">C: مدارس</option><option value="X">مستبعد</option><option value="">الكل</option></select>
+    <label class="t"><input type="checkbox" id="new" checked> الجديد فقط</label>
+    <button class="btn" id="exp">تصدير CSV</button>
+  </div>
+  <div class="chips" id="chips"></div>
+  <div class="count" id="count"></div>
+  <div class="list" id="list"></div>
+</div>
+<script>
+const D=__DATA__, L=D.leads, S=D.stats;
+const $=id=>document.getElementById(id);
+let city="", tab="reach", done={};
+try{done=JSON.parse(localStorage.getItem("done:"+D.title)||"{}")}catch(e){}
+const save=()=>{try{localStorage.setItem("done:"+D.title,JSON.stringify(done))}catch(e){}};
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+$("ttl").textContent=D.title;
+$("sub").textContent="نتائج خرائط جوجل — أرقام صالحة فقط، بدون تكرار";
+$("stats").innerHTML=[["قابل للتواصل (A+B)",S.A+S.B-S.field],["زيارة ميدانية",S.field],["جاهز للإدراج",S.importable],["موبايل/واتساب",S.mobile],["إيميل",S.email],["سوشال",S.soc],["موقع",S.web],["مكرر مدموج",S.dup],["بدون رقم",S.no_phone]].map(([k,v])=>`<div class="stat"><b>${v}</b><span>${k}</span></div>`).join("");
+const cityMax=Object.entries(S.cities).sort((a,b)=>a[1]-b[1]);
+const steps=[
+ `ابدأ بـ <b>${S.mobile}</b> رقم موبايل — هؤلاء يمكن مراسلتهم على واتساب مباشرة. الخطوط الأرضية تحتاج اتصالاً.`,
+ `استخدم أسلوب CLAIM: مدح إعلانهم ← سؤال عن مشكلتهم ← عرض أوستازي. رسالة واحدة + متابعة بعد 3 أيام ثم توقف.`,
+ `أفضل وقت: المدرسون 19:00–21:30 (سبت–أربعاء)، المعاهد 11:00–13:00 أو 16:00–18:00.`,
+ cityMax.length?`أضعف المدن نتائج: <b>${cityMax.slice(0,2).map(x=>x[0]+" ("+x[1]+")").join("، ")}</b> — أعد البحث فيها بـ <code>-grid-bbox</code> لتغطية أدق.`:"",
+ `سوشال ميديا: ${S.soc} عميل لديهم فيسبوك/انستغرام — استخدمها كقناة ثانية إذا لم يرد واتساب.`,
+ `ملف <code>import.csv</code> جاهز (${S.importable} عميل) بصيغة جدول OutreachLead — الاستيراد يتخطى المكرر تلقائياً بالرقم والمعرّف.`,
+ `أضف الجيّد إلى جدول OutreachLead مع تاريخ متابعة — لا عميل بدون خطوة تالية بتاريخ.`,
+ `علّم ✓ على من تم التواصل معه هنا (يُحفظ في المتصفح).`
+].filter(Boolean);
+$("guide").innerHTML="<h2>خطوات مقترحة</h2><ol>"+steps.map(s=>`<li>${s}</li>`).join("")+"</ol>";
+function chips(){const all=[["",Object.values(S.cities).reduce((a,b)=>a+b,0)],...Object.entries(S.cities)];
+ $("chips").innerHTML=all.map(([c,n])=>`<button class="chip ${c===city?"on":""}" data-c="${esc(c)}">${c||"كل المدن"} · ${n}</button>`).join("");
+ $("chips").querySelectorAll(".chip").forEach(b=>b.onclick=()=>{city=b.dataset.c;chips();render()})}
+function view(){
+ const q=$("q").value.trim().toLowerCase(),mob=$("mob").checked,tr=$("tier").value,nw=$("new").checked;
+ let r=L.filter(l=>(!city||l.city===city)&&(!mob||l.kind==="mobile")&&(tab==="field"?(l.field&&l.tier!=="X"):(!l.field&&(!tr||tr.includes(l.tier))))&&(!nw||l.new)&&(!q||(l.name+" "+l.category+" "+l.phone+" "+l.address+" "+(l.emails||[]).join(" ")).toLowerCase().includes(q)));
+ const s=$("sort").value;
+ if(s==="reviews")r.sort((a,b)=>b.reviews-a.reviews);else if(s==="name")r.sort((a,b)=>(a.name||"").localeCompare(b.name||"","ar"));
+ return r}
+function render(){
+ const r=view();$("count").textContent=r.length+" نتيجة";
+ $("list").innerHTML=r.slice(0,300).map((l,ix)=>{const id=l.id,so=Object.entries(l.social||{});
+  return `<div class="lead ${done[id]?"done":""}">
+  <div><div class="name">${esc(l.name)}</div>
+   <div class="meta"><span>${esc(l.category||"")}</span><span>${esc(l.city)}</span>${l.rating?`<span>★ ${l.rating} (${l.reviews})</span>`:""}
+   <span class="tag">${l.tier}</span><span class="tag ${l.kind==="mobile"?"":"w"}">${l.kind==="mobile"?"موبايل":l.kind==="none"?"بدون وسيلة تواصل":"أرضي"}</span>${l.new?"":'<span class="tag w">مُدرج سابقاً</span>'}</div>
+   <div class="meta"><span>${esc(l.address||"")}</span></div>
+   <div class="meta">${l.emails.map(e=>`<a class="btn" href="mailto:${esc(e)}">✉ ${esc(e)}</a>`).join("")}${l.website?`<a class="btn" target="_blank" rel="noopener" href="${esc(l.website)}">🌐 الموقع</a>`:""}${so.map(([k,u])=>`<a class="btn" target="_blank" rel="noopener" href="${esc(u)}">${k}</a>`).join("")}</div>
+   ${l.field?`<div class="meta">📍 ${esc(l.lat)}, ${esc(l.lng)}</div>`:`<details><summary class="meta" style="cursor:pointer">كيف نتواصل: ${esc(l.channels.slice(0,3).join(" ← "))}</summary>
+    <div class="msg">${esc(l.msg1)}</div><div class="meta">متابعة بعد 3 أيام:</div><div class="msg">${esc(l.msg2)}</div>
+    <button class="btn" data-m1="${ix}">نسخ الرسالة</button> <button class="btn" data-m2="${ix}">نسخ المتابعة</button></details>`}</div>
+  <div class="act"><span class="ph">${esc(l.phone)}</span>
+   ${l.wa?`<a class="btn wa" target="_blank" rel="noopener" href="${esc(l.wa)}">واتساب برسالة جاهزة</a>`:(l.phone?`<a class="btn" href="tel:${l.phone}">اتصال</a>`:`<span class="tag w">زيارة ميدانية</span>`)}
+   ${l.phone?`<button class="btn" data-cp="${l.phone}">نسخ</button>`:""}${l.map?`<a class="btn" target="_blank" rel="noopener" href="${esc(l.map)}">خريطة</a>`:""}
+   <button class="btn" data-d="${id}">${done[id]?"↩︎":"✓ تم"}</button></div></div>`}).join("");
+ $("list").querySelectorAll("[data-m1],[data-m2]").forEach(b=>b.onclick=()=>{const l=r[+(b.dataset.m1??b.dataset.m2)];navigator.clipboard&&navigator.clipboard.writeText(b.dataset.m1!==undefined?l.msg1:l.msg2);b.textContent="✓ نُسخ"});
+ $("list").querySelectorAll("[data-cp]").forEach(b=>b.onclick=()=>{navigator.clipboard&&navigator.clipboard.writeText(b.dataset.cp);b.textContent="✓"});
+ $("list").querySelectorAll("[data-d]").forEach(b=>b.onclick=()=>{const k=b.dataset.d;done[k]=!done[k];save();render()})}
+$("exp").onclick=()=>{const r=view(),h=["name","category","city","phone","kind","website","rating","reviews","address","map"];
+ const c=[h.join(",")].concat(r.map(l=>h.map(k=>'"'+String(l[k]??"").replace(/"/g,'""')+'"').join(",")));
+ const a=document.createElement("a");a.href=URL.createObjectURL(new Blob(["﻿"+c.join("\n")],{type:"text/csv"}));a.download="leads.csv";a.click()};
+["q","sort","mob","tier","new"].forEach(i=>$(i).addEventListener("input",render));
+$("fc").textContent="· "+S.field;$("tabs").querySelectorAll("[data-t]").forEach(b=>b.onclick=()=>{tab=b.dataset.t;$("tabs").querySelectorAll("[data-t]").forEach(x=>x.classList.toggle("on",x===b));$("guide").style.display=tab==="field"?"none":"";render()});
+chips();render();
+</script>
+</body>
+</html>

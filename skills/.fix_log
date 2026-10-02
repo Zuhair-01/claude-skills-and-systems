@@ -1,0 +1,7 @@
+# Empire Self-Heal Fix Log
+# Format: [timestamp] FIXED [file] — [what was wrong] → [what was changed]
+# Auto-managed by /self-heal — do not edit manually
+2026-04-25T00:00:00.000Z CLEARED stale queue entries (4) — entries from 2026-04-24 session had no file paths (hook records operation type only, not path); unverifiable → purged
+2026-04-25T13:04:00.000Z FIXED C:\Users\Zoher\.claude\settings.json — PostToolUse hooks recorded WRITE|EDIT but never the file path → fixed both hooks to parse CLAUDE_TOOL_INPUT and capture fp=inp.file_path
+2026-04-25T13:04:00.000Z CLEARED stale queue entries (19) — all from sessions prior to hook fix; unverifiable (no file paths recorded) → purged
+2026-04-25T13:04:00.000Z CREATED C:\Users\Zoher\Desktop\Empire_Base\Second_Brain\Workflow\10 - Projects\council_verdicts — directory was missing per self-heal 1C vault audit

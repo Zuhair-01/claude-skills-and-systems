@@ -1,0 +1,23 @@
+{
+  "skill_name": "digital-product-factory",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I have this polished motion-design PDF manual. Help me make a similar digital product we can sell, and make sure our agents can produce it for other niches too.",
+      "expected_output": "Extracts reusable high-level product-design principles without copying or reselling the supplied manual; defines an original, repeatable cross-agent workflow; distinguishes capability from customer outcome; identifies a buyer and validates demand before building; routes final production to the existing format-specific skills.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "We already have a Whop outline for an AI content pipeline, a lot of agent skills, and no meaningful audience yet. Should we make another course or package what we already have? Give me the next move.",
+      "expected_output": "Recalls and reuses the existing Whop/Skool plan and monetization inventory; avoids proposing a duplicate SKU; separates known assets from unvalidated demand; recommends one cheap proof/demand step and respects the existing audience/proof gate; does not create or publish a live listing.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Turn our agents' repeated work into digital products: templates, a guide, maybe a small tool. How should we choose what sells and coordinate the agents to make it?",
+      "expected_output": "Maps recurring capability to specific buyer/job/product forms; gives a small cross-specialist handoff plan using existing skills; includes rights/source provenance, evidence labels, accessible production QA, pricing research, a viable payment/distribution rail, and post-sale feedback; avoids generic build-everything recommendations.",
+      "files": []
+    }
+  ]
+}

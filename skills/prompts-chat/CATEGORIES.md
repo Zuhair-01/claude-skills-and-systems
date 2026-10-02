@@ -1,0 +1,20 @@
+# prompts.chat categories
+
+- code-dev: 334
+- image-gen: 316
+- general-utility: 248
+- creative-media: 242
+- writing-content: 176
+- data-ai: 163
+- marketing-business: 156
+- education-tutoring: 118
+- finance-trading: 63
+- roleplay-characters: 60
+- design-ui: 57
+- devops-security: 52
+- career-hr: 50
+- advice-life: 48
+- health-wellness: 39
+- legal-gov: 24
+- language-translation: 17
+- jailbreak-unsafe: 6

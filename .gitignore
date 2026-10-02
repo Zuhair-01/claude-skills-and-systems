@@ -1,0 +1,25 @@
+# Never publish these (kept local-only even if re-added upstream)
+node_modules/
+dist/
+*.exe
+*.dll
+*.so
+*.wasm
+*.node
+*.pt
+*.pth
+*.onnx
+*.zip
+*.tgz
+*.mp3
+*.mp4
+*.wav
+*.mov
+.env
+.env.*
+*.key
+*.pem
+*secret*
+*token*
+.DS_Store
+Thumbs.db

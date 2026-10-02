@@ -1,0 +1,52 @@
+ 135  Development
+  97  Games & Comics
+  97  Government
+  94  Geocoding
+  74  Transportation
+  70  Cryptocurrency
+  54  Finance
+  45  Open Data
+  45  Video
+  43  Social
+  42  Security
+  41  Sports & Fitness
+  36  Documents & Productivity
+  36  Health
+  35  Music
+  35  Science & Math
+  34  Weather
+  30  Machine Learning
+  29  Photography
+  27  Books
+  27  Business
+  27  Test Data
+  26  Animals
+  25  Food & Drink
+  25  Personality
+  22  Art & Design
+  21  News
+  20  Currency Exchange
+  20  Email
+  20  Jobs
+  20  URL Shorteners
+  19  Anime
+  19  Environment
+  18  Calendar
+  18  Cloud Storage & File Sharing
+  18  Text Analysis
+  16  Entertainment
+  16  Shopping
+  15  Anti-Malware
+  13  Blockchain
+  13  Dictionaries
+  11  APIs Covered Under APILayer Suite!
+  11  Tracking
+  10  Vehicle
+   9  Open Source Projects
+   7  Authentication & Authorization
+   7  Data Validation
+   7  Phone
+   6  Continuous Integration
+   5  Programming
+   4  Patent
+   3  Events
