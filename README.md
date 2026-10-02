@@ -3,9 +3,11 @@
 [![skills](https://img.shields.io/badge/skills-360-d97757)](SKILLS-INDEX.md)
 [![license](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 [![works with](https://img.shields.io/badge/works_with-Claude_Code_%7C_OpenCode-30363d)](PORTING.md)
+[![stars](https://img.shields.io/github/stars/Zuhair-01/claude-skills-and-systems?style=social)](https://github.com/Zuhair-01/claude-skills-and-systems)
+[![last commit](https://img.shields.io/github/last-commit/Zuhair-01/claude-skills-and-systems)](https://github.com/Zuhair-01/claude-skills-and-systems/commits/main)
 [![PRs](https://img.shields.io/badge/PRs-welcome-brightgreen)](PORTING.md)
 
-# Claude Skills & Smart Systems
+# Claude Skills & Smart Systems — 360 Agent Skills for Claude Code & OpenCode
 
 A production-grade library of **360 agent skills** plus the routing systems that make them work together — built for bootstrapping a new Claude Code / OpenCode setup on a new device in minutes.
 
@@ -69,6 +71,10 @@ Details, per-skill requirements (API keys, runtimes), and path conventions → *
 - `$SECOND_BRAIN` in skill text = your knowledge-vault root. Set it per machine (see PORTING.md).
 - `~` = the home directory of whoever installed the repo. No machine-specific absolute paths ship here.
 - Personal skills (voice clones, private outreach ops, client-specific work) are intentionally **not** published.
+
+## Find this repo
+
+Searching for **claude code skills, claude skills library, ai agent skills, agent skills collection, opencode skills, llm skills, prompt engineering library, autonomous coding skills, react / nextjs / fastapi / django skills, ugc video skills, heygen / seedance skills, seo and marketing skills, qa and code review skills, MCP server skills, RAG implementation skills** — you're in the right place. Every skill is listed with a one-line description in [`SKILLS-INDEX.md`](SKILLS-INDEX.md), and the [`overseer`](skills/overseer/) index answers keyword searches offline.
 
 ## License
 
